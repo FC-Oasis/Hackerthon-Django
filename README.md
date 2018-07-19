@@ -1,4 +1,4 @@
-# django-baeminchan
+# hackerthon-django
 
 ## Requirements
 

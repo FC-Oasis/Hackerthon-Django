@@ -6,4 +6,4 @@ def boom(request):
     if request.method == 'GET':
         return render(request, 'comments/boom.html')
     else:
-        return HttpResponse('baaddddd')
+        return render(request, 'comments/boom.html')

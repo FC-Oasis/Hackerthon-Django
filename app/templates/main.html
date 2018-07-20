@@ -9,18 +9,41 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
 <body>
-    <div>
-        <h1>불쾌지수</h1>
-        <div class="">
-            <ul class="navbar-nav ml-auto">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="margin-top: 30px;
+    margin-left: 300px;">
+                <h1>불쾌지수</h1>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
-                    <li>
+                    <li class="mt-3">
 						<span>{{ user }}로 로그인 중 </span>
 					</li>
 
-					<li>
-						<a href="{% url 'members:logout' %}">Logout</a>
+					<li class="mt-3 mb-3">
+                        <a href="{% url 'members:logout' %}" class="btn btn-primary btn-sm">Logout</a>
 					</li>
+
+                    <div>
+                        <img src="{% static 'image/hell1.jpeg' %}" class="float-left" alt="">
+
+                        <div class="float-left" style=" margin-left: 100px;">
+                        <span>습도(%): {{ data.humidity }}</span><br>
+                        <span>온도(°C) : {{ data.temperature }}</span><br>
+                        <span>마지막 업데이트 시간: {{ data.recorded_at }}</span>
+                        </div>
+                    </div>
+
+                    <form action="{% url 'comments:boom' %}" method="POST" style="margin-top: 30px;">
+                        {% csrf_token %}
+                    <button type="submit" class="btn btn-primary btn-sm">누르지 마시오</button>
+                    </form>
 
                 {% else %}
 					<li class="nav-item">
@@ -32,23 +55,11 @@
                 {% endif %}
 
 				</ul>
-        </div>
-        <img src="{% static 'image/hell1.jpeg' %}" alt="">
-
-
-        <div>
-            <span>습도(%): {{ data.humidity }}</span><br>
-            <span>온도(°C) : {{ data.temperature }}</span><br>
-            <span>마지막 업데이트 시간: {{ data.recorded_at }}</span>
+            </div>
 
         </div>
 
-        {% if user.is_authenticated %}
-        <form action="{% url 'comments:boom' %}" method="POST">
-            {% csrf_token %}
-            <button type="submit">누르지 마시오</button>
-        </form>
-        {% endif %}
+
         {% block content %}
         {% endblock %}
     </div>

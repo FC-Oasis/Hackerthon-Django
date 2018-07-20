@@ -16,9 +16,10 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
+
             return HttpResponse('login!')
         else:
-            return HttpResponse('login!')
+            return redirect('members:login')
 
     else:
-        return HttpResponse('login!')
+        return render(request, 'members/login.html')

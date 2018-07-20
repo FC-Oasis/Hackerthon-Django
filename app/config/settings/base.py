@@ -25,7 +25,12 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 secrets = json.load(open(os.path.join(SECRET_DIR, 'base.json'), 'rb'))
 SECRET_KEY = secrets['SECRET_KEY']
 
+AUTH_USER_MODEL = 'members.User'
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+LOGIN_URL = 'members:login'
 # Application definition
 
 INSTALLED_APPS = [

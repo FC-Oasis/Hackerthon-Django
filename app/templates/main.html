@@ -9,13 +9,28 @@
 </head>
 <body>
     <div>
-        <h1>불쾌지수 보여주기</h1>
-        <div>
-            {% if user.is_authenticated %}
-                <a href="">로그아웃하기</a>
-            {% else %}
-                <a href="{% url 'memebers:login' ">로그인하기</a>
-            {% endif %}
+        <h1>불쾌지수</h1>
+        <div class="">
+            <ul>
+                {% if user.is_authenticated %}
+                    <li>
+						<span>{{ user }}로 로그인 중 </span>
+					</li>
+
+					<li>
+						<a href="{% url 'members:logout' %}">Logout</a>
+					</li>
+
+                {% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'members:login' %}">Login</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'members:signup' %}">Signup</a>
+					</li>
+                {% endif %}
+
+				</ul>
         </div>
 
         {% block content %}

@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('members/', include('members.urls')),
     path('observation/', include('observation.urls')),
-    path('', views.index),
+    path('', views.index, name='index'),
     path('comments/', include('comments.urls')),
 ] + static(
     prefix=settings.MEDIA_ROOT,

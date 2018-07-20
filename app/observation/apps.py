@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class ShowWeatherConfig(AppConfig):
+class ObservationConfig(AppConfig):
     name = 'observation'

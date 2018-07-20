@@ -10,3 +10,6 @@ class Record(models.Model):
 
     class Meta:
         ordering = ('-recorded_at',)
+
+    def __str__(self):
+        return f'Record : humidity {self.humidity}, temperature {self.temperature}, recorded_at {self.recorded_at}'

@@ -17,3 +17,5 @@ def add(request):
         return HttpResponse('OK', status=200)
     else:
         return render(request, 'observation/add.html')
+
+

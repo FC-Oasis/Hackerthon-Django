@@ -1,4 +1,4 @@
-<!doctype html>
+{% load staticfiles %}
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -33,6 +33,15 @@
 
 				</ul>
         </div>
+        <img src="{% static 'image/hell1.jpeg' %}" alt="">
+
+
+        <div>
+            <span>습도(%): {{ data.humidity }}</span><br>
+            <span>온도(°C) : {{ data.temperature }}</span><br>
+            <span>마지막 업데이트 시간: {{ data.recorded_at }}</span>
+
+        </div>
 
         {% if user.is_authenticated %}
         <form action="{% url 'comments:boom' %}" method="POST">
@@ -42,11 +51,6 @@
         {% endif %}
         {% block content %}
         {% endblock %}
-
-        <div>
-            <img src="" class="rounded float-left" alt="">
-
-        </div>
     </div>
 
 </body>

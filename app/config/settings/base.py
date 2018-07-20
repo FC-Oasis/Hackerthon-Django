@@ -18,8 +18,12 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 SECRET_DIR = os.path.join(ROOT_DIR, '.secrets')
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
-STATIC_FILES_DIR = (os.path.join(BASE_DIR, 'static'))
-MEDIA_ROOT = (os.path.join(BASE_DIR, 'media'))
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/

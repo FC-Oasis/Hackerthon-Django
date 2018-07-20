@@ -27,6 +27,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('comments/', include('comments.urls')),
 ] + static(
-    prefix=settings.MEDIA_ROOT,
+    prefix=settings.MEDIA_URL,
     document_root=settings.MEDIA_ROOT,
 )

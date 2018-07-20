@@ -33,6 +33,12 @@
 				</ul>
         </div>
 
+        {% if user.is_authenticated %}
+        <form action="{% url 'comments:boom' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">누르지 마시오</button>
+        </form>
+        {% endif %}
         {% block content %}
         {% endblock %}
 

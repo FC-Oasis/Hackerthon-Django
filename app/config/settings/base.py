@@ -18,6 +18,9 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 SECRET_DIR = os.path.join(ROOT_DIR, '.secrets')
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
+STATIC_FILES_DIR = (os.path.join(BASE_DIR, 'static'))
+MEDIA_ROOT = (os.path.join(BASE_DIR, 'media'))
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -26,6 +29,7 @@ secrets = json.load(open(os.path.join(SECRET_DIR, 'base.json'), 'rb'))
 SECRET_KEY = secrets['SECRET_KEY']
 
 AUTH_USER_MODEL = 'members.User'
+STATIC_URL = '/static/'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',

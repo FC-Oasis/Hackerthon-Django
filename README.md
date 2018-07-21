@@ -31,7 +31,7 @@
 
 ```json
 {
-  "ALLOWED_HOSTS": [<Your list>],
+  "ALLOWED_HOSTS": ["<Your list>"],
   "DATABASES": {
     "default": {
       "ENGINE": "<DB engine like django.db.backends.postgresql>",
